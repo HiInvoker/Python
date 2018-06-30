@@ -1,0 +1,146 @@
+
+#Filename: vowles_count
+
+def v_c(string):
+    count = 0
+    for c in string:
+        if c in "aeiouAEIOU":
+            count += 1
+    return count
+
+string = input("input a string")
+
+print(v_c(string))
+
+#切片：
+ sting = 'hello world'
+ sting[0:7] = 'hello w'
+# e in string
+  True
+#for c in string:
+    print(c)
+
+#string不变性
+ string.replace('old','new')
+ 
+  eg:
+     string = 'hello world'
+     s = string.replace('e','a') 
+     ('hallo')
+     而string 还是 'hello world'
+
+#文件操作：
+ f = open('filename','method')
+eg:
+ f = oprn('emma.txt','r')
+
+for line in f:
+    line = line.strip() #去掉一个字符串开始和结尾的空格，即去掉空的一行
+    print(line.title()) #title方法，首字母大写，其余小写	
+f.close() #关闭文件
+
+#回文人名：
+ 
+f = open('names.txt','r')
+
+def isPanin(string):
+    low = 0
+    high = len(string) - 1
+    isParlin = 1
+   
+   while low < high:
+        if string[low] != string[high]:
+            isParlin = 0
+            break
+        low += 1
+        high -= 1
+   return isPanin    
+
+
+for line in f:
+    line = line.strip()
+    if isParlin(line):
+        print(line.title())
+
+f.close()
+
+
+#以递归的方式实现
+
+def isPanin_rec(string):
+    if len(string) <= 1:
+        return True
+    else:
+        if string[0] != string[-1]:
+            return False
+        else:
+            return isPanin_rec(string[1:-1])
+
+
+#字符串是否为升序排列
+
+def is_ascending(s):
+    p = s[0]
+    isAsd = 1 
+   
+    for c in s:
+        if c < p:
+            isAsc = 0
+            break
+        p = c
+  
+    return isAsd    
+
+
+#字符串格式化(formatting)
+format方法 如：
+>>>print ('Hello {} good {} .'.format(5, 'Day'))#format里面的字符替换前面大括号里的
+
+Hello 5 good Day
+
+括号的格式
+{file name:align width.precision type}
+eg:
+>>>print math.pi
+3.14159265359
+
+>>>print("Pi is {: .4f}".format(math.pi))
+Pi is 3.1416        #小数点后3位
+
+>>>print("Pi is { 9.4f}".format(math.pi))
+Pi is    3.1416     #9表示所占宽度
+
+>>>print('Pi is {:e}'.format(math.pi))
+Pi is 3.141593e+00
+#e表示科学计数法                        
+
+
+#正则表达式(regular expressions)
+
+#判断一个人名（name）是否满足下列模式
+
+eg：包含c*e 字串
+
+#正则表达式用来描述字符串的模式
+.表示任意字符
+\d+表示一系列数字
+[a-z]表示一个小写字母
+... 
+
+eg:
+判断一个人名是否含有C.A模式
+
+import re
+pattern = 'C.A'
+
+f = open('names.txt', 'r')
+
+for name in f:
+    name = name.strip()
+    result = re.search(pattern,name)
+    if result:
+        print("Find in {}".format(name))
+
+f.close()
+
+

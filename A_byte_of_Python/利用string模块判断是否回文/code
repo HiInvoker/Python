@@ -1,0 +1,26 @@
+#Filename：isPalin.py
+
+import string
+
+def reverse(text):
+    return text[::-1]
+
+def change(text):
+    for char in string.punctuation:
+        text = text.replace(char, '')
+    text = text.replace(' ','')
+    text = text.lower()
+
+    return text
+
+def is_palin():
+    words = input("Enter something:")
+    if change(words) == reverse(change(words)):
+        print("{0} is a palindrome".format(words))
+    else:
+        print("{0} is not a palindrome.".format(words))
+
+if __name__ == '__main__':
+    is_palin()
+else:
+    print("World Peace!")

@@ -1,0 +1,112 @@
+
+#嵌套列表：
+
+计算所有学生的平均分：
+
+students = [['zhang',87],
+            ['wang',66],
+            ['li',100],        
+            ['z',80]]
+                    
+ave = 0.0
+sum = 0.0
+
+for student in students:
+    sum += student[1]
+
+print(sum/len(students))
+
+
+#列表解析或推导（由原列表创建新列表的简洁方式）:
+[表达式（变量的表达式） for 变量 in 列表 if 条件]
+
+如：[x**2 for x in range(1,10)]
+则生成一个新的列表：[1,4,9......,81]
+
+#列表推导实现求评价分：
+  sum([x[1] for x in students])/len(students)
+
+#列表解析对所输入数字x的因数求和：
+ sum([i for i in range(1,x+1) if x%i ==0])
+
+#按照成绩高低排序：
+ students = [['zhang',87],
+            ['wang',66],
+            ['li',100],        
+            ['z',80]]
+ def f(x):
+     return x[1]
+
+ students.sort(key = f,reverse =True)
+ print(students)
+
+#lambda函数:
+定义匿名函数：
+>>>def f(x): return x**2
+....
+>>>print(x(8))
+64
+
+>>>g = lambda x: x**2
+>>>g(8)
+64
+      
+#lambda函数实现的按成绩排序：
+students.sort(key = lambda x: x[1],reverse = True)
+
+
+            元组（Tuple）
+#元祖即是不可变列表
+除了可改变列表内容的方法外，其他方法均适合于元组  
+所以，索引、切片、len()、print等均可用
+但是append、extend、del不可用
+
+#利用（）创建元组
+
+my_tuple = (1,'a',3.14,True)
+
+#为何需要元组
+.确保列表内容不被修改
+.交换两个值：
+    tmp = a
+    a = b
+    b = tmp
+或者 a,b = b,a
+.如切分一个邮件地址：
+name,domain = 'car@hit.edu.cn'.split('@')
+分别得到'car' 'hit.edu.cn'
+
+.函数只能有一个返回值，但是该值可以是一组值，如返回一个元组
+.如：同时返回列表中最大和最小值
+
+return min,max
+
+#DSU 模式
+Decorate sort and undecorate
+装饰 排序和反装饰
+
+.如根据单词长度对一个单词列表进行排序
+def sort_by_len(words):
+    lst = []
+    for word in words:
+        lst.append((len(word),word))
+    #decorate
+
+    lst.sort(reverse = True)
+    #sort
+
+    ret = []
+    for length,word in lst:
+        ret.append(word)
+    #undecorate
+
+    return ret
+#或者是：words.sort(key = lambda x: len(x),reverse =True) 
+
+        
+    
+
+ 
+
+
+                             

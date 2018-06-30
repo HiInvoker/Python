@@ -1,0 +1,30 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy as sc
+
+from scipy.optimize import curve_fit
+
+df = pd.read_csv('c.csv')
+
+def func(x, a, b, c, d):
+    return 1/2 + ((np.exp((a*x+b)/c) - np.exp((-a*x-b)/c)) / (d*(np.exp((a*x+b)/c) + np.exp((-a*x-b)/c))))
+
+		popt, pcov = curve_fit(func, df['x'], df['y'])
+
+		a = popt[0]
+		b = popt[1]
+		c = popt[2]
+		d = popt[3]
+    #各个系数
+
+		yvals = func(df['x'], a, b, c, d)
+    #拟合得到的对应y值
+
+		plot1 = plt.plot(df['x'], df['y'], '*',label='original values')
+		plot2 = plt.plot(df['x'], yvals, 'r',label='curve_fit values')
+
+		plt.xlabel('x axis')
+		plt.ylabel('y axis')
+		plt.legend()
+		plt.show()

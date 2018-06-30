@@ -1,0 +1,28 @@
+#!/sur/bin/env python
+#Filename: pickle.py
+#将文件储存为二进制，将二进制格式的文件打开
+
+impot pickle
+
+my_list = [1,2,[3,4],'hello world']
+
+pickle_f = open('pickle.txt', 'wb')
+
+pickle.dump(my_list, pickle_f)  #存储 只能够使用list类型的，所以。如果来源是一个文件。就要：
+#f = open(filename)
+#lst = []
+#for i in f:
+#    i = i.strip()
+#    lst.append(i)
+
+
+pickle_f.close()
+
+#打开二进制的文件
+
+f = open('pickle.txt', 'rb')
+
+my_list2 = pickle.load(f)
+print(my_list2)
+
+f.close()

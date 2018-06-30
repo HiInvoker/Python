@@ -1,0 +1,43 @@
+n = int(input("input a number:"))
+
+for i in range(2,n):
+    if x % i == 0:
+        print(n,"is not a prime")
+        break
+else:
+    print(n,"is a prime")
+
+#此处的else与for对齐，表示： 如果for循环正常结束（break）则不会执行else，如果非正常结束，则会执行else
+;================================================================================================
+isPrime = 1
+
+n = int(input("Enter a number:"))
+
+for i in range(2,n):
+    if n % i == 0:
+        isPrime = 0
+        break
+
+if isPrime:
+    print(n,"is a prime")
+
+;===============================================================================
+
+#输出前50个素数
+
+count = 0
+x = 2
+isPrime = 1
+
+while count < 50:
+    for i in range(2,x):
+        if x % i == 0:
+            isPrime = 0
+            break
+    if isPrime:
+        print(x)
+        count += 1
+        x += 1
+    else:
+        x += 1
+        isPrime = 1                                      

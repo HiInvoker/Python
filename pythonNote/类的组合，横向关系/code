@@ -1,0 +1,19 @@
+
+#class 的继承和super()函数
+
+class Turtle(object):
+   def __init__(self, value):
+       self.num = value
+class Fish(object):
+   def __init__(self, value):
+       self.num = value
+
+
+
+class Pool(object):
+   def __init__(self, x, y):  #初始化如有参数需要输入参数
+       self.turtle = Turtle(x)
+       self.fish = Fish(y)
+       #利用组合解决横向的问题
+   def print_num(self):
+       print("The amount of turtles and fish are {} and {} ".format(self.turtle.num, self.fish.num))

@@ -1,0 +1,18 @@
+
+class shortInputException(Exception):
+    def __init__(self, length, atleast):
+        Exception.__init__(self)
+        self.length = length
+        self.atleast = atleast
+
+try:
+    text = input("Enter something>>>")
+    length = len(text)
+    if length < 3:
+        raise shortInputException(length, 3)
+
+except EOFError as reason:
+    print("Wrong, the reason is {0}".format(reason))
+
+except shortInputException as reason:
+    print("Wrong, u should input atleast {0} long, but u just entered {1} long.".format(reason.atleast, reason.length))

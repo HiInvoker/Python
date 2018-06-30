@@ -1,0 +1,25 @@
+
+#property函数
+
+class C(object):
+   def __init__(self, value):
+       self.size = value
+   def getSize(self):
+       return self.size
+   def setSize(self, value):
+       self.size = value
+   def delSize(self):
+       del self.size
+
+   x = property(getSize, setSize, delSize)
+
+
+#property(fget=None, fset=None, fdel=None, doc=None)
+
+#c1 = C()
+#c1.x
+>>>10
+#c1.x = 19 改变size的值
+#c1.size
+>>>19
+#del c1.x 此时size就不存在了                  

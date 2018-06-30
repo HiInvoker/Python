@@ -1,0 +1,8 @@
+#Filename: with.py
+
+with open("record.txt") as f:
+    for line in f:
+        print(line.strip(), end = '')
+
+#with open 在程序结束以后自动关闭文件
+#with可以获取open语句返回的对象F，启动代码块之前，后台会调用thefile.__enter__函数，代码块结束之后会调用thefile.__exit__函数

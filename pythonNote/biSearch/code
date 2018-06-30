@@ -1,0 +1,21 @@
+#有序数组中元素的二分法查找
+#以python2 执行
+
+def bi_search(lst,x):
+    low = 0
+    high = len(lst) - 1
+    while low <= high:
+        mid = (low+high)/2
+        if lst[mid] == x:
+            return mid
+        elif lst[mid] > x:
+            high = mid -1
+        else:
+            low = mid + 1
+    return -1
+
+
+lst = [3,5,8,10]
+
+print(bi_search(lst,5))
+

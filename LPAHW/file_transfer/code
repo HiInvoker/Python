@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+#Filename: ex17.py  ¸´ÖÆÎÄ¼þ
+
+from sys import argv
+from os.path import exists
+
+script, from_file, to_file = argv
+
+f_file = open(from_file)
+f_data = f_file.read()
+
+print("The {} is {} long.".format(from_file, len(f_data)))
+
+print("Does the {} exist? %r".format(to_file) %exists(to_file))
+
+t_file = open(to_file, "w")
+t_file.write(f_data)
+
+f_file.close()
+t_file.close()
+
+print("Ok, all is done.")
+
+                           
+
+
+

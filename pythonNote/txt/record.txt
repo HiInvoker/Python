@@ -1,0 +1,14 @@
+h:hello!
+T:hello!
+h:how are u?
+T:Not bad,what about u?
+++++++++++++++++++++++++++++++++++
+h:Do u find a job?
+T:Yeah.
+h:What is it?
+T:Dont.
++++++++++++++++++++++++++++++++++
+h:Do u miss me?
+T:No.
+h:I will never give up.
+T:Try harder.

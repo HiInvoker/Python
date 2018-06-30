@@ -1,0 +1,17 @@
+#!/sur/bin/env python
+#Filename: pickle.py
+
+try: #按顺序选择执行，出错就跳到Ex
+    f = open('hello.txt')
+    five = 1 + '1'
+    print(f.read())
+
+except OSError as reason:
+    print("Wrong, the reason is:"+str(reason))
+
+except TypeError as reason:
+    print("Wrong, the reason is:"+str(reason))
+
+finally: #一定会执行，所以才会在这里关闭之类的操作。
+    f.close()
+    print("Do it once again")

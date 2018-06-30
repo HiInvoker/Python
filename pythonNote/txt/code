@@ -1,0 +1,40 @@
+
+#以函数的思想来操作txt文件
+
+def split_file(filename):
+    f = open(filename)
+
+    boy = []
+    girl = []
+    count = 1
+
+    for line in f:
+        if line[:5] != '+++++':
+            role, words = line.split(":", 1)
+            if role == 'h':
+                boy.append(words)
+            if role == 'T':
+                girl.append(words)
+
+        else:
+            w_write(boy,girl,count)
+            count += 1
+            boy = []
+            girl = []
+    w_write(boy,girl,count)
+
+def w_write(list1,list2,count):
+    b_file_name = 'boy_'+str(count)+'.txt'
+    g_file_name = 'girl_'+str(count)+'.txt'
+
+    f_b = open(b_file_name, 'w')
+    f_g = open(g_file_name, 'w')
+
+    f_b.writelines(list1)
+    f_g.writelines(list2)
+
+    f_b.close()
+    f_g.close()
+
+
+split_file('record.txt')

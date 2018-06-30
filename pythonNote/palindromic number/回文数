@@ -1,0 +1,16 @@
+#以python2执行
+
+n = int(input("input a number:"))
+
+m = n
+
+k = 0
+
+while n > 0:
+    k = 10*k + n%10
+    n /= 10
+
+if k == m:
+    print('ok')
+else:
+    print('not')

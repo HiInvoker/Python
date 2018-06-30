@@ -1,0 +1,32 @@
+#Filename：objvar.py
+
+class Robot():
+    '''Represents a robot, with a name'''
+
+    population = 0
+    #类变量
+
+    def __init__(self, name):
+        '''Initializes the data.'''
+        self.name = name
+        print("Initializes {0}".format(self.name))
+
+        Robot.population += 1
+
+    def __del__(self):
+        '''Im dying.'''
+        print("{0} is being destroyed.".format(self.name))
+
+        Robot.population -= 1
+
+        if Robot.population == 0:
+            print("{0} was the last one.".format(self.name))
+        else:
+            print("There are still {0:d} robots working".format(Robot.population))
+
+    def sayHi(self):
+        print("My master call me {0}.".format(self.name))
+
+    def howMany():
+        print("We hvae {0:d} robots.".format(Robot.population))
+    howMany = staticmethod(howMany)

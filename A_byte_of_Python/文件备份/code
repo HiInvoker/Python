@@ -1,0 +1,89 @@
+#Filename： backup.py
+
+import os
+import time as t
+# import time and os module
+
+source = ['"D:\\github"', 'D:\\Hill']
+#the source file to be backuped
+
+target_dir = "E:\\hello"
+#the place to backup the file
+
+today = target_dir + os.sep + t.strftime('%Y%m%d')
+
+now = t.strftime('%H%M%S')
+
+if not os.path.exists(today):
+    os.mkdir(today)
+    print("Successfully create the directory ", today)
+
+target = today + os.sep + now + '.zip'
+
+zip_command = 'zip -qr {} {}'.format(target, ' '.join(source))
+
+if os.system(zip_command) == 0:
+    print("Successfully backup to ", target)
+else:
+    print("Backup Failed")
+
+#---------------------------------------------------------------------
+#新增对文件的评论
+import os
+import time as t
+
+source = ['"D:\\github"', 'D:\\Hill']
+
+target_dir = 'E:\\hello'
+
+today = target_dir + os.sep + t.strftime('%Y%m%d')
+
+now = t.strftime("%H%M%S")
+
+comment = input("Enter something>>>")
+
+if len(comment) == 0:
+    target = today + os.sep + now + '.zip'
+else:
+    target = today + os.sep + now + comment.replace(' ', '_') + '.zip'
+
+
+if not os.path.exists(today):
+    os.mkdir(today)
+    print("Successfully create the", today)
+
+zip_command = 'zip -qr {} {}'.format(target, ' '.join(source))
+
+if os.system(zip_command) == 0:
+    print("Successfully create the backup")
+else:
+    print("Failed")
+#==============================================================================
+#使用zipfile 模块的版本
+
+import zipfile as z
+import os
+import time as t
+
+source = 'D:\\github\Hill'
+
+target_dir = 'E:\\hello'
+
+today = target_dir + os.sep + t.strftime('%Y%m%d')
+
+
+if not os.path.exists(today):
+    os.mkdir(today)
+    print("Successfully create the ", today)
+
+now = t.strftime("%H%M%S")
+
+target =  today + os.sep + now + '.zip'
+
+z_f = z.ZipFile(target, 'w')
+
+if os.path.isdir(source):
+    for d in os.listdir(source):
+        z_f.write(source+os.sep+d)
+
+z_f.close()
